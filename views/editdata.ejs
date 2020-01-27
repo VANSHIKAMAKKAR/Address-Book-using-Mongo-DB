@@ -15,10 +15,10 @@
 	</head>
 	<body>
         <center style="top :50%; left: 50%; transform:translate(-50%,-50%); position:absolute;">
-        <form action="/editname/"+ method="post">
-        	<input name="name" type="text" placeholder="Name"><br><br>
-        	<input name="phone" type="text" placeholder="PhoneNo."><br><br>
-        	<textarea name="address" type="text" placeholder="Address"></textarea><br><br>
+        <form action="/editname/<%=book._id%>"+ method="post">
+        	<input name="name" type="text" value="<%=book.name%>"><br><br>
+        	<input name="phone" type="text" value="<%=book.phoneno%>"><br><br>
+        	<input name="address" type="text" value="<%=book.address%>"><br><br>
      <button type="submit" class="btn-success">Edit</button>
     </form>
 </center>

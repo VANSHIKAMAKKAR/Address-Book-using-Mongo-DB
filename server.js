@@ -57,7 +57,7 @@ app.get('/home',auth,(req,res)=>{
 })
 
 app.get('/editdata/:id',(req,res)=>{
-	book.findOne({_id:req.params.id},(err,book)=>{
+	addressBooks.findOne({_id:req.params.id},(err,book)=>{
 		res.render('editdata',{
 			book:book
 		})
@@ -106,8 +106,21 @@ app.post('/addname',(req,res)=>{
     res.redirect('/home')
 })
 
-app.post('/editname',(req,res)=>{
-
+app.post('/editname/:id',(req,res)=>{
+     addressBooks.updateOne({_id:req.params.id},{
+     	name:req.body.name,
+     	phoneno:req.body.phone,
+     	address:req.body.address
+     },function(err){
+     	if(err)
+     	{
+     		console.log(err);
+     	}
+     	else
+     	{
+     		res.redirect('/home')
+     	}
+     })
 })
 app.listen(5000,()=>{
 	console.log("Server is running on port 5000")
