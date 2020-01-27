@@ -67,6 +67,23 @@ app.get('/addname',(req,res)=>{
 	res.render('addname')
 })
 
+app.get('/deletedata/:id',auth,(req,res)=>{
+	addressBooks.deleteOne({_id:req.params.id},(err)=>{
+         if(err)
+         {
+         	console.log(err)
+         }
+         else
+         {
+         	res.redirect('/home')
+         }
+	})
+})
+
+app.get('/logout',(req,res)=>{
+	req.session.destroy()
+	res.redirect('/login')
+})
 app.post('/register',(req,res)=>{
 	console.log(req.body)
     let user=new Users({

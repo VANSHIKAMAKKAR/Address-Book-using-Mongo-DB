@@ -33,6 +33,8 @@
         <%=user.name %>
 		<% } %>
 		</font></span>
+		<a style="text-decoration: none;" href="/logout"><span style="float:right">&nbsp;Logout&nbsp;&nbsp;&nbsp;
+		</span></a>
 		<center><a href="/addname"><button id="demo1" class="btn-success">ADD</button></a></center>
      <center style="top :50%; left: 50%; transform:translate(-50%,-50%); position:absolute;">
      <table>
@@ -46,7 +48,7 @@
      	<td><%=i.address %></td>
      	<td><%=i.phoneno %></td>
      	<td width="200px"><a href="/editdata/<%=i._id%>"><button id="colt">Edit</button></a></td>
-     	<td width="200px"><a href="/deletedata/+<%=i._id%>"><button id="colt">Delete</button></a></td>
+     	<td width="200px"><a href="/deletedata/<%=i._id%>"><button id="colt">Delete</button></a></td>
      </tr>
      <%})%>
  </table>
